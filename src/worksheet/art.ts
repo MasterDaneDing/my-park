@@ -1,3 +1,4 @@
+import { assetUrl } from "./asset-url";
 import type { Place, Relation, Sticker } from "./model";
 
 const INK = "#24324a";
@@ -12,17 +13,17 @@ const WOOD_DARK = "#8a5a2b";
 const BLUE = "#3d8bdb";
 const WHITE = "#ffffff";
 
-export const GRASS_SRC = "/park/grass.jpg";
+export const GRASS_SRC = assetUrl("/park/grass.jpg");
 
 export const SIGN_SRC: Record<Place, string> = {
-  cinema: "/park/signs/cinema.png",
-  clinic: "/park/signs/clinic.png",
-  "fire station": "/park/signs/fire-station.png",
-  "police station": "/park/signs/police-station.png",
-  restaurant: "/park/signs/restaurant.png",
-  "post office": "/park/signs/post-office.png",
-  bank: "/park/signs/bank.png",
-  supermarket: "/park/signs/supermarket.png",
+  cinema: assetUrl("/park/signs/cinema.png"),
+  clinic: assetUrl("/park/signs/clinic.png"),
+  "fire station": assetUrl("/park/signs/fire-station.png"),
+  "police station": assetUrl("/park/signs/police-station.png"),
+  restaurant: assetUrl("/park/signs/restaurant.png"),
+  "post office": assetUrl("/park/signs/post-office.png"),
+  bank: assetUrl("/park/signs/bank.png"),
+  supermarket: assetUrl("/park/signs/supermarket.png"),
 };
 
 export function sceneSources(place: Place): string[] {

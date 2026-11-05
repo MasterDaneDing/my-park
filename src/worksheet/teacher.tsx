@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
 import { KeyRound, X } from "lucide-react";
-import { saveParkPdf } from "@/lib/save-park";
 import { clearHandFont, loadStoredFont, saveHandFont } from "./fonts";
 import { TEACHER_PASSWORD } from "./model";
+import { postToDrive } from "./drive-client";
 import { appsScriptSource, readScriptUrl, writeScriptUrl } from "./script";
 import { useDraft } from "./store";
 
@@ -31,7 +30,6 @@ export function TeacherSheet({
   const locked = useDraft((state) => state.locked);
   const unlock = useDraft((state) => state.unlock);
   const resetPupil = useDraft((state) => state.resetPupil);
-  const checkDrive = useServerFn(saveParkPdf);
 
   useEffect(() => {
     setScriptUrl(readScriptUrl());
@@ -200,13 +198,11 @@ export function TeacherSheet({
                       setNotice("Add the web app link first.");
                       return;
                     }
-                    void checkDrive({
-                      data: {
-                        scriptUrl: url,
-                        filename: "ping.pdf",
-                        ping: true,
-                        password: TEACHER_PASSWORD,
-                      },
+                    void postToDrive({
+                      scriptUrl: url,
+                      filename: "ping.pdf",
+                      ping: true,
+                      password: TEACHER_PASSWORD,
                     }).then((result) => {
                       if (result.ok) writeScriptUrl(url);
                       setNotice(result.ok ? result.detail : result.message);

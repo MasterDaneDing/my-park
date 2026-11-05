@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
 import { clsx } from "clsx";
 import { ChevronLeft, ChevronRight, FlipHorizontal2, Minus, Plus, RotateCw, Trash2 } from "lucide-react";
-import { saveParkPdf } from "@/lib/save-park";
+import { postToDrive } from "./drive-client";
 import { loadStoredFont } from "./fonts";
 import {
   CATALOG,
@@ -40,7 +39,6 @@ export function Worksheet() {
   const [hint, setHint] = useState("");
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState("");
-  const saveToDrive = useServerFn(saveParkPdf);
 
   useEffect(() => {
     void loadStoredFont();
@@ -72,13 +70,11 @@ export function Worksheet() {
         return;
       }
       const pdfBase64 = await pdf.blobToBase64(built.blob);
-      const result = await saveToDrive({
-        data: {
-          scriptUrl,
-          filename: built.filename,
-          pdfBase64,
-          password: TEACHER_PASSWORD,
-        },
+      const result = await postToDrive({
+        scriptUrl,
+        filename: built.filename,
+        pdfBase64,
+        password: TEACHER_PASSWORD,
       });
       if (!result.ok) {
         setSaveError(result.message);

@@ -1,7 +1,9 @@
+import { assetUrl } from "./asset-url";
+
 export const PARK_GROUPS = ["Play", "Trees", "Bins", "Children"] as const;
 export type ParkGroup = (typeof PARK_GROUPS)[number];
 
-export const CATALOG = [
+const ITEMS = [
   { id: "ball", label: "Ball", group: "Play", src: "/park/ball.png", aspect: 0.9783 },
   { id: "picnic", label: "Picnic", group: "Play", src: "/park/picnic.png", aspect: 0.5391 },
   { id: "duck", label: "Duck", group: "Play", src: "/park/duck.png", aspect: 0.9739 },
@@ -61,7 +63,12 @@ export const CATALOG = [
   { id: "child-27", label: "Child 27", group: "Children", src: "/park/child-27.png", aspect: 1.0798 },
 ] as const;
 
-export type PropKind = (typeof CATALOG)[number]["id"];
+export const CATALOG = ITEMS.map((item) => ({
+  ...item,
+  src: assetUrl(item.src),
+}));
+
+export type PropKind = (typeof ITEMS)[number]["id"];
 
 const BY_ID = new Map(CATALOG.map((item) => [item.id, item]));
 
