@@ -1,0 +1,70 @@
+export const PARK_GROUPS = ["Play", "Trees", "Bins", "Children"] as const;
+export type ParkGroup = (typeof PARK_GROUPS)[number];
+
+export const CATALOG = [
+  { id: "ball", label: "Ball", group: "Play", src: "/park/ball.png", aspect: 0.9783 },
+  { id: "picnic", label: "Picnic", group: "Play", src: "/park/picnic.png", aspect: 0.5391 },
+  { id: "duck", label: "Duck", group: "Play", src: "/park/duck.png", aspect: 0.9739 },
+  { id: "kite", label: "Kite", group: "Play", src: "/park/kite.png", aspect: 1.4198 },
+  { id: "frisbee", label: "Frisbee", group: "Play", src: "/park/frisbee.png", aspect: 0.55 },
+  { id: "rope", label: "Rope", group: "Play", src: "/park/rope.png", aspect: 1.3031 },
+  { id: "teddy", label: "Teddy", group: "Play", src: "/park/teddy.png", aspect: 1.4286 },
+  { id: "van", label: "Van", group: "Play", src: "/park/van.png", aspect: 1.0407 },
+  { id: "truck", label: "Truck", group: "Play", src: "/park/truck.png", aspect: 0.713 },
+  { id: "bubbles", label: "Bubbles", group: "Play", src: "/park/bubbles.png", aspect: 1.0723 },
+  { id: "palm", label: "Palm", group: "Trees", src: "/park/palm.png", aspect: 1.4154 },
+  { id: "leaning-palm", label: "Leaning palm", group: "Trees", src: "/park/leaning-palm.png", aspect: 1.3772 },
+  { id: "palm-2", label: "Palm", group: "Trees", src: "/park/palm-2.png", aspect: 1.3939 },
+  { id: "tree", label: "Tree", group: "Trees", src: "/park/tree.png", aspect: 1.1948 },
+  { id: "apples", label: "Apples", group: "Trees", src: "/park/apples.png", aspect: 1.2073 },
+  { id: "blossom", label: "Blossom", group: "Trees", src: "/park/blossom.png", aspect: 1.2267 },
+  { id: "blossom-2", label: "Blossom", group: "Trees", src: "/park/blossom-2.png", aspect: 1.3529 },
+  { id: "lollipops", label: "Lollipops", group: "Trees", src: "/park/lollipops.png", aspect: 1.25 },
+  { id: "cones", label: "Cones", group: "Trees", src: "/park/cones.png", aspect: 1.2299 },
+  { id: "ices", label: "Ices", group: "Trees", src: "/park/ices.png", aspect: 1.4696 },
+  { id: "cat", label: "Cat", group: "Bins", src: "/park/cat.png", aspect: 1.4791 },
+  { id: "cat-2", label: "Cat", group: "Bins", src: "/park/cat-2.png", aspect: 1.4839 },
+  { id: "dino", label: "Dino", group: "Bins", src: "/park/dino.png", aspect: 1.4154 },
+  { id: "dino-2", label: "Dino", group: "Bins", src: "/park/dino-2.png", aspect: 1.2707 },
+  { id: "alien", label: "Alien", group: "Bins", src: "/park/alien.png", aspect: 1.7293 },
+  { id: "cat-3", label: "Cat", group: "Bins", src: "/park/cat-3.png", aspect: 1.4696 },
+  { id: "cat-4", label: "Cat", group: "Bins", src: "/park/cat-4.png", aspect: 1.4744 },
+  { id: "dino-3", label: "Dino", group: "Bins", src: "/park/dino-3.png", aspect: 1.2958 },
+  { id: "grandad", label: "Grandad", group: "Bins", src: "/park/grandad.png", aspect: 1.5972 },
+  { id: "dino-4", label: "Dino", group: "Bins", src: "/park/dino-4.png", aspect: 1.3411 },
+  { id: "child-1", label: "Child 1", group: "Children", src: "/park/child-1.png", aspect: 1.5132 },
+  { id: "child-2", label: "Child 2", group: "Children", src: "/park/child-2.png", aspect: 1.365 },
+  { id: "child-3", label: "Child 3", group: "Children", src: "/park/child-3.png", aspect: 1.2399 },
+  { id: "child-4", label: "Child 4", group: "Children", src: "/park/child-4.png", aspect: 1.4198 },
+  { id: "child-5", label: "Child 5", group: "Children", src: "/park/child-5.png", aspect: 1.2299 },
+  { id: "child-6", label: "Child 6", group: "Children", src: "/park/child-6.png", aspect: 1.5488 },
+  { id: "child-7", label: "Child 7", group: "Children", src: "/park/child-7.png", aspect: 1.4511 },
+  { id: "child-8", label: "Child 8", group: "Children", src: "/park/child-8.png", aspect: 1.3814 },
+  { id: "child-9", label: "Child 9", group: "Children", src: "/park/child-9.png", aspect: 1.2603 },
+  { id: "child-10", label: "Child 10", group: "Children", src: "/park/child-10.png", aspect: 1.57 },
+  { id: "child-11", label: "Child 11", group: "Children", src: "/park/child-11.png", aspect: 1.2672 },
+  { id: "child-12", label: "Child 12", group: "Children", src: "/park/child-12.png", aspect: 1.1058 },
+  { id: "child-13", label: "Child 13", group: "Children", src: "/park/child-13.png", aspect: 1.201 },
+  { id: "child-14", label: "Child 14", group: "Children", src: "/park/child-14.png", aspect: 1.2073 },
+  { id: "child-15", label: "Child 15", group: "Children", src: "/park/child-15.png", aspect: 1.2137 },
+  { id: "child-16", label: "Child 16", group: "Children", src: "/park/child-16.png", aspect: 1.0849 },
+  { id: "child-17", label: "Child 17", group: "Children", src: "/park/child-17.png", aspect: 1.09 },
+  { id: "child-18", label: "Child 18", group: "Children", src: "/park/child-18.png", aspect: 0.8739 },
+  { id: "child-19", label: "Child 19", group: "Children", src: "/park/child-19.png", aspect: 1.1705 },
+  { id: "child-20", label: "Child 20", group: "Children", src: "/park/child-20.png", aspect: 0.8 },
+  { id: "child-21", label: "Child 21", group: "Children", src: "/park/child-21.png", aspect: 1.1031 },
+  { id: "child-22", label: "Child 22", group: "Children", src: "/park/child-22.png", aspect: 1.2169 },
+  { id: "child-23", label: "Child 23", group: "Children", src: "/park/child-23.png", aspect: 1.0624 },
+  { id: "child-24", label: "Child 24", group: "Children", src: "/park/child-24.png", aspect: 1.2202 },
+  { id: "child-25", label: "Child 25", group: "Children", src: "/park/child-25.png", aspect: 1.0952 },
+  { id: "child-26", label: "Child 26", group: "Children", src: "/park/child-26.png", aspect: 1.1646 },
+  { id: "child-27", label: "Child 27", group: "Children", src: "/park/child-27.png", aspect: 1.0798 },
+] as const;
+
+export type PropKind = (typeof CATALOG)[number]["id"];
+
+const BY_ID = new Map(CATALOG.map((item) => [item.id, item]));
+
+export function catalogById(id: string) {
+  return BY_ID.get(id as PropKind) ?? null;
+}

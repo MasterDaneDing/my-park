@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: Nunito;
+  src: url("/fonts/Nunito-wght.ttf") format("truetype");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Patrick Hand";
+  src: url("/fonts/PatrickHand-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-ink: #24324a;
+  --color-paper: #fff7ea;
+  --color-sky: #79c7ee;
+  --color-sky-deep: #2f86c4;
+  --color-grass: #67b84a;
+  --color-grass-deep: #2f8a32;
+  --color-sun: #ffd15c;
+  --color-berry: #d7263d;
+  --color-blush: #ffd0d8;
+  --color-line: #ead7b8;
+  --color-muted: #667389;
+  --color-pavement: #e4e7ee;
+  --color-crayon-white: #ffffff;
+  --color-crayon-black: #241c16;
+  --color-crayon-red: #d7263d;
+  --color-crayon-orange: #f08a24;
+  --color-crayon-yellow: #ffd15c;
+  --color-crayon-green: #67b84a;
+  --color-crayon-blue: #2f86c4;
+  --color-crayon-purple: #6d4ca3;
+  --color-crayon-pink: #f48fb1;
+  --color-crayon-brown: #8d5a3c;
+  --font-display: Nunito, ui-rounded, system-ui, sans-serif;
+  --font-hand: "Patrick Hand", cursive;
+  --radius-sheet: 1.75rem;
+}
+
+:root {
+  --font-hand-family: "Patrick Hand";
+  color-scheme: light;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background: var(--color-sky);
+    color: var(--color-ink);
+    font-family: var(--font-display);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  button:disabled {
+    cursor: default;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-berry);
+    outline-offset: 3px;
+  }
+}
+
+.teacher-sheet {
+  max-height: 92dvh;
+}
+
+.safe-pad {
+  padding: 0.75rem;
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+.sheet {
+  box-shadow: 0 10px 0 var(--color-ink);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 3.25rem;
+  border-radius: 999px;
+  border: 3px solid var(--color-ink);
+  padding-inline: 1.1rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1;
+  user-select: none;
+  box-shadow: 0 4px 0 var(--color-ink);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--color-ink);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  box-shadow: none;
+}
+
+.chip {
+  border: 3px solid var(--color-ink);
+  border-radius: 1rem;
+  background: var(--color-paper);
+  box-shadow: 0 3px 0 var(--color-ink);
+}
+
+.chip:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--color-ink);
+}
+
+.blank {
+  width: 100%;
+  border: none;
+  border-bottom: 4px solid var(--color-ink);
+  border-radius: 0;
+  background: transparent;
+  padding: 0.2rem 0.4rem 0.1rem;
+  font-family: var(--font-hand);
+  font-size: 2rem;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--color-ink);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.blank::placeholder {
+  color: var(--color-line);
+}
+
+.card-pop {
+  box-shadow: 0 6px 0 var(--color-ink);
+}
+
+.poster {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (orientation: landscape) and (min-width: 900px) {
+  .poster {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: start;
+    column-gap: 1.25rem;
+  }
+}
+
+.park-frame {
+  aspect-ratio: 5 / 4;
+  width: 100%;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes nudge {
+  0%,
+  100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+.nudge {
+  animation: nudge 280ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nudge { animation: none; }
+  .btn:active:not(:disabled),
+  .chip:active { transform: none; }
+}
+
+.field {
+  width: 100%;
+  border: 3px solid var(--color-ink);
+  border-radius: 1rem;
+  background: var(--color-paper);
+  padding: 0.7rem 0.9rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--color-ink);
+}
