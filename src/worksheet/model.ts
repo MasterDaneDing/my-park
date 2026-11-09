@@ -1,6 +1,6 @@
 export const TEACHER_PASSWORD = "patpat";
 
-export const CLASSES = ["1A", "1B", "1C"] as const;
+export const CLASSES = ["2A", "2B", "2C", "2D"] as const;
 export type ClassName = (typeof CLASSES)[number];
 
 export const RELATIONS = ["in front of", "next to", "behind"] as const;
@@ -136,10 +136,9 @@ export function readDraft(): Draft | null {
       ...parsed,
       step: Number.isFinite(step) ? Math.min(FINAL_STEP, Math.max(0, step)) : 0,
       stickers: Array.isArray(parsed.stickers) ? parsed.stickers : [],
-      className:
-        parsed.className === "1A" || parsed.className === "1B" || parsed.className === "1C"
-          ? parsed.className
-          : "",
+      className: (CLASSES as readonly string[]).includes(parsed.className ?? "")
+        ? (parsed.className as ClassName)
+        : "",
     };
   } catch {
     return null;
